@@ -6,7 +6,7 @@ const client = new discord.Client({
 
 //NPMS
 const db = require('megadb');
-//NPMS  hola
+//NPMS  hola fgrg
 
 //! CODIGO
 client.commands = new discord.Collection();

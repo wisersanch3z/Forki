@@ -1,11 +1,11 @@
 module.exports = {
-    name: "help",
-    description: "Mira los comandos disponibles",
+    name: "bruh",
+    description: "goofy bruh commandaaaaa",
 
    
     run: async (client, interaction) => {
     
-      interaction.reply({ content: "QUE TAL NO HAY COMANDOS JADJKADJKHADJKHDASJKHDFGWKFGWKHFGWIUFGEWIFGEWIYFGWEIFGWIUFWGIUFWE" })
+      interaction.reply({ content: "bruh" })
       }
-    //test bruhh
+   
   };

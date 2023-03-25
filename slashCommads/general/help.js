@@ -7,5 +7,5 @@ module.exports = {
     
       interaction.reply({ content: "bruh" })
       }
-   //et
+   //etr
   };

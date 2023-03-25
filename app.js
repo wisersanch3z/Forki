@@ -8,7 +8,7 @@ const client = new discord.Client({
 const db = require('megadb');
 //NPMS 
 
-//------- tr
+//------- trr
 client.commands = new discord.Collection();
 client.events = new discord.Collection();
 client.slash = new discord.Collection();

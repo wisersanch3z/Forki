@@ -7,5 +7,5 @@ module.exports = {
     
       interaction.reply({ content: "QUE TAL NO HAY COMANDOS JADJKADJKHADJKHDASJKHDFGWKFGWKHFGWIUFGEWIFGEWIYFGWEIFGWIUFWGIUFWE" })
       }
-    
+    //test bruhh
   };

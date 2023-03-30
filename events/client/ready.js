@@ -1,10 +1,10 @@
 module.exports = async (client) => {
-  console.log(`Bot: ${client.user.username} online`);
+  console.log(`${client.user.username} online!`);
 
 
-  client.user.setStatus("dnd");
+  client.user.setStatus("online");
   client.user.setActivity({	
-		name: `Samperiff (BETA)`,
+		name: `descontinued`,
 		type: 'PLAYING'
 
 })

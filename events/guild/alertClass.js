@@ -12,7 +12,7 @@ module.exports = (client, discord, interaction) => {
     const horaElSalvador = new Date(ahora.getTime() - (6 * 60 * 60 * 1000));
   
     // Comprueba si hoy es viernes
-    if (horaElSalvador.getDay() !== 5) { // 5 representa el número del día de la semana (0 = domingo, 1 = lunes, 2 = martes, etc.)
+    if (horaElSalvador.getDay() !== 1) { // 5 representa el número del día de la semana (0 = domingo, 1 = lunes, 2 = martes, etc.)
       console.log(`No es viernes, el mensaje no será enviado.`);
       return;
     }
@@ -32,7 +32,7 @@ module.exports = (client, discord, interaction) => {
       canal.send(msg);
     }, tiempoRestante);
   }
-enviarMensajeSoloViernes('Mensaje enviado desde el STA(Sistema de Alarma) este mensaje debio enviarse a las 1:40', '2023-04-07T13:40:00.000-06:00');
+enviarMensajeSoloViernes('Mensaje enviado desde el STA(Sistema de Alarma) este mensaje debio enviarse a las 1:45', '2023-04-07T13:45:00.000-06:00');
 
 console.log(`SISTEMA DE ALARMA CARGADO`);
 }

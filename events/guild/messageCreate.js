@@ -10,7 +10,7 @@ module.exports = async (client, discord, message) => {
 
 if (message.channel.type === "dm") return;
 
-  if(message.content.startsWith("<@945718671450443886>")) return message.reply("<a:HyperWave:984693956744974376> ¡Hola! parece que me has mencionado, para ver mis comandos escribe: `?ayuda`")
+  if(message.content.startsWith("<@945718671450443886>")) return message.reply("Que quieres perdedor")
  
   if (!message.content.startsWith(prefix)) return;
 
@@ -25,6 +25,6 @@ if (message.channel.type === "dm") return;
 
 
   if(message.content.length > 3) {
-if(!command) return message.reply("❌ | No he encontrado ese comando, verifica mis comandos con `?ayuda`"); 
+if(!command) return message.reply("Comando desconocido`"); 
   }
 };

@@ -1,5 +1,5 @@
 require("dotenv").config();
-const prefix = "?"
+const prefix = "-"
 
 
 
@@ -25,6 +25,6 @@ if (message.channel.type === "dm") return;
 
 
   if(message.content.length > 3) {
-if(!command) return message.reply("Comando desconocido`"); 
+if(!command) return message.reply("Comando desconocido"); 
   }
 };

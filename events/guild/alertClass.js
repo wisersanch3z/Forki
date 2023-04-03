@@ -4,7 +4,7 @@ const Discord = require('discord.js');
 
 module.exports = (client, discord, interaction) => {
     console.log(`SISTEMA DE ALARMA CARGADO`);
-    
+
 // Crea la función para enviar el mensaje solo los viernes
 function enviarMensajeSoloViernes(msg, hora, canal) {
   // Calcula la hora actual en El Salvador
@@ -13,7 +13,7 @@ function enviarMensajeSoloViernes(msg, hora, canal) {
 
 
   const msg = "Mensaje de prueba: 1h class";
-  const hora = "2023-04-03T13:20:00.000-06:00";
+  const hora = "2023-04-03T13:30:00.000-06:00";
   // Comprueba si hoy es viernes
   if (horaElSalvador.getDay() !== 5) { // 5 representa el número del día de la semana (0 = domingo, 1 = lunes, 2 = martes, etc.)
     console.log(`No es viernes, el mensaje no será enviado.`);

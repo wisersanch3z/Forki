@@ -6,6 +6,7 @@ const client = new discord.Client({
 
 //NPMS
 const db = require('megadb');
+const cron = require('node-cron');
 //NPMS 
 
 //------- trr

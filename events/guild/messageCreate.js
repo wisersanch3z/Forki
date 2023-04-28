@@ -3,7 +3,6 @@ const prefix = "-"
 
 
 
-
 module.exports = async (client, discord, message) => {
 
 
@@ -26,5 +25,13 @@ if (message.channel.type === "dm") return;
 
   if(message.content.length > 3) {
 if(!command) return message.reply("Comando desconocido"); 
+  
+
+
+
+
+
+
+
   }
 };

@@ -37,7 +37,7 @@ if(!eleccion) return message.reply("Ingresa un numero del 1 al 4")
             .setColor("RED")
             .setDescription(
     "`Mensaje programado para las 1:45pm | Viernes`\n\n\
-    ⏰ | Link de Zoom para unirse a la clase de Informática:\n[Click aqui para unirte](https://us04web.zoom.us/j/78561115699?pwd=kiGbfURj9e3sYAOdDnrUBWqNBTg2b2.1)\
+⏰ | Link de Zoom para unirse a la clase de Informática:\n[Click aqui para unirte](https://us04web.zoom.us/j/78561115699?pwd=kiGbfURj9e3sYAOdDnrUBWqNBTg2b2.1)\
     \n\n⏹ | **Detalles del enlace**:\n🆔 | ID de reunión: 785 6111 5699\n🔐 | Código de acceso: INFO9-23")
     .setFooter("[STA] | Sistema de Tortura Alarmista")
             client.channels.resolve('1101362256408760402').send({content: `<@&1101361745261502614>`, embeds: [informatica]})
@@ -54,7 +54,7 @@ if(!eleccion) return message.reply("Ingresa un numero del 1 al 4")
             .setColor("ORANGE")
             .setDescription(
     "`Mensaje programado para las 2:30pm | Viernes`\n\n\
-    ⏰ | Link de Zoom para unirse a la clase de Artística:\n[Click aqui para unirte](https://us05web.zoom.us/j/81373137268?pwd=V3FEK29EdW1ZS2U3UjZWK0FPMjk1dz09)\
+⏰ | Link de Zoom para unirse a la clase de Artística:\n[Click aqui para unirte](https://us05web.zoom.us/j/81373137268?pwd=V3FEK29EdW1ZS2U3UjZWK0FPMjk1dz09)\
     \n\n⏹ | **Detalles del enlace**:\n🆔 | ID de reunión: 813 7313 7268\n🔐 | Código de acceso: CCJSJ2023")
     .setFooter("[STA] | Sistema de Tortura Alarmista")
             client.channels.resolve('1101362256408760402').send({content: `<@&1101361745261502614>`, embeds: [artistica]})
@@ -72,7 +72,7 @@ if(!eleccion) return message.reply("Ingresa un numero del 1 al 4")
             .setColor("YELLOW")
             .setDescription(
     "`Mensaje programado para las 3:15pm | Viernes`\n\n\
-    ⏰ | Link de Zoom para unirse a la clase de Lenguaje:\n[Click aqui para unirte](https://us05web.zoom.us/j/86430265687?pwd=UERMOS91MXl4bkZrRHUvOGFoKzZFdz09)\
+⏰ | Link de Zoom para unirse a la clase de Lenguaje:\n[Click aqui para unirte](https://us05web.zoom.us/j/86430265687?pwd=UERMOS91MXl4bkZrRHUvOGFoKzZFdz09)\
     \n\n⏹ | **Detalles del enlace**:\n🆔 | ID de reunión: 864 3026 5687\n🔐 | Código de acceso: LENGUAJE23")
     .setFooter("[STA] | Sistema de Tortura Alarmista")
             client.channels.resolve('1101362256408760402').send({content: `<@&1101361745261502614>`, embeds: [lenguaje]})

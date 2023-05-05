@@ -1,22 +1,43 @@
-const discord = require("discord.js");
-const client = new discord.Client({
-  intents: 32767,
-  partials: ["GUILD_MEMBER", "USER", "CHANNEL", "MESSAGE", "REACTION"],
+const {
+  Client,
+  GatewayIntentBits,
+  Partials,
+  Collection,
+} = require("discord.js");
+const { Guilds, GuildMembers, GuildMessages } = GatewayIntentBits;
+const { User, Message, GuildMember, ThreadMember } = Partials;
+
+const client = new Client({
+  intents: 3276799,
+  partials: [User, Message, GuildMember, ThreadMember],
 });
 
-//NPMS
-const db = require('megadb');
-const cron = require('node-cron');
-//NPMS 
+const { loadEvents } = require("./Handlers/eventHandler");
+const { loadbMenus } = require("./Handlers/menuHandler");
+const { loadModals } = require("./Handlers/modalHandler");
+const { loadbButtons } = require("./Handlers/buttonHandler");
 
-//------- trr
-client.commands = new discord.Collection();
-client.events = new discord.Collection();
-client.slash = new discord.Collection();
+client.events = new Collection();
+client.commands = new Collection();
+client.buttons = new Collection();
+client.menus = new Collection();
+client.modals = new Collection();
 
-["commandHandler", "eventHandler", "slashHandler"].forEach((file) => {
-  require(`./handlers/${file}`)(client, discord);
-});
-//!------
+loadEvents(client);
+loadbButtons(client);
+loadbMenus(client);
+loadModals(client);
 
-client.login(process.env.token);
+
+// Anti-Crash
+require("./Handlers/anti-crash.js")(client);
+
+require("dotenv").config();
+
+client
+  .login(process.env.token)
+  .then(() => {
+    console.log(`Cliente ${client.user.username} conectado a Discord`);
+    client.user.setActivity(`NOS VAMOS PA LA V14 PENDEJOS DE MIERDA`);
+  })
+  .catch((err) => console.log(err));

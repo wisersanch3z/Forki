@@ -1,21 +1,26 @@
-const fs = require("fs");
+async function loadCommands(client) {
+  const { loadFiles } = require("../Functions/fileLoader");
+  const ascii = require("ascii-table");
+  const table = new ascii().setHeading("Commands", "Status");
 
-module.exports = (client, discord) => {
-  console.log("---------------------- COMANDOS ----------------------");
-  fs.readdirSync("./commands/").forEach((dir) => {
-    const commands = fs
-      .readdirSync(`./commands/${dir}`)
-      .filter((file) => file.endsWith(".js"));
+  await client.commands.clear();
 
-    for (const file of commands) {
-      const cmd = require(`../commands/${dir}/${file}`);
-      if (cmd.name) {
-        console.log(cmd.name);
-        client.commands.set(cmd.name, cmd);
-      } else {
-        console.log(`Error: ${file}`);
-      }
-    }
+  let commandsArray = [];
+
+  const Files = await loadFiles("Commands");
+
+  Files.forEach((file) => {
+    const command = require(file);
+    client.commands.set(command.data.name, command);
+
+    commandsArray.push(command.data.toJSON());
+
+    table.addRow(command.data.name, "🟩");
   });
-  console.log("---------------------- COMANDOS ----------------------");
-};
+
+  client.application.commands.set(commandsArray);
+
+  return console.log(table.toString(), "\nCommands Loaded.");
+}
+
+module.exports = { loadCommands };

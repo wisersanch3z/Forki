@@ -1,36 +1,30 @@
-const fs = require("fs");
+async function loadEvents(client) {
+  const { loadFiles } = require("../Functions/fileLoader");
+  const ascii = require("ascii-table");
+  const table = new ascii().setHeading("Events", "Status");
 
-module.exports = (client, discord) => {
-  console.log("---------------------- EVENTS ----------------------");
+  await client.events.clear();
 
-  //* CODIGO
+  const Files = await loadFiles("Events");
 
-  fs.readdirSync("./events/").forEach((dir) => {
-    const events = fs
-      .readdirSync(`./events/${dir}`)
-      .filter((file) => file.endsWith(".js"));
+  Files.forEach((file) => {
+    const event = require(file);
 
-    for (const file of events) {
-      try {
-        let evn = require(`../events/${dir}/${file}`);
+    const execute = (...args) => event.execute(...args, client);
+    client.events.set(event.name, execute);
 
-        if (evn.event && typeof evn.event !== "string") {
-          console.log(`Error: ${file}`);
-          continue;
-        }
-
-        evn.event = evn.event || file.replace(".js", "");
-
-        client.on(evn.event, evn.bind(null, client, discord));
-        console.log(`Event loaded: ${evn.event}`);
-      } catch (error) {
-        console.log("Error en la carga de eventos");
-        console.log(error);
-      }
+    if (event.rest) {
+      if (event.once) client.rest.on(event.name, execute);
+      else client.rest.on(event.name, execute);
+    } else {
+      if (event.once) client.once(event.name, execute);
+      else client.on(event.name, execute);
     }
+
+    table.addRow(event.name, "🟩");
   });
 
-  //* CODIGO
+  return console.log(table.toString(), "\nLoaded Events.");
+}
 
-  console.log("---------------------- EVENTS ----------------------");
-};
+module.exports = { loadEvents };

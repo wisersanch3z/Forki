@@ -11,10 +11,10 @@ async function loadPrefixs(client) {
     const prefixs = require(file);
     client.prefixs.set(prefixs.name, prefixs);
 
-    table.addRow(prefixs.name, "✅");
+    table.addRow(prefixs.name, "🟩");
   });
 
-  return console.log(table.toString(), "\nComandos de Prefix Cargados");
+  return console.log(table.toString(), "\n---Comandos de Prefix Cargados---");
 }
 
 module.exports = { loadPrefixs };

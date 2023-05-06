@@ -1,15 +1,14 @@
 const {
   Client,
-  GatewayIntentBits,
   Partials,
   Collection,
 } = require("discord.js");
-const { Guilds, GuildMembers, GuildMessages } = GatewayIntentBits;
 const { User, Message, GuildMember, ThreadMember } = Partials;
 
 const client = new Client({
   intents: 3276799,
   partials: [User, Message, GuildMember, ThreadMember],
+  ws: { properties: { browser: "Discord iOS" } },
 });
 
 const { loadEvents } = require("./Handlers/eventHandler");
@@ -22,15 +21,14 @@ client.commands = new Collection();
 client.buttons = new Collection();
 client.menus = new Collection();
 client.modals = new Collection();
+client.prefixs = new Collection();
 
 loadEvents(client);
 loadbButtons(client);
 loadbMenus(client);
 loadModals(client);
 
-
-// Anti-Crash
-require("./Handlers/anti-crash.js")(client);
+require("./Handlers/anti-crash")(client);
 
 require("dotenv").config();
 

@@ -6,12 +6,12 @@ const {
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("ping")
-    .setDescription("Te respondere Pong!"),
+    .setDescription("Te dire PONG jje"),
   /**
    *
    * @param {ChatInputCommandInteraction} interaction
    */
-  execute(interaction, client) {
+  async execute(interaction, client) {
     interaction.reply({ content: `Pong! **${client.ws.ping} ms**` });
   },
 };

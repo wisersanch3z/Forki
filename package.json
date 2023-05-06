@@ -21,7 +21,7 @@
     "canvas": "^2.9.3",
     "cheerio": "^1.0.0-rc.10",
     "colors": "^1.4.0",
-    "discord.js": "^14.8.0",
+    "discord.js": "^14.10.2",
     "dotenv": "^10.0.0",
     "fs": "^0.0.1-security",
     "genius-lyrics-api": "^3.2.0",
@@ -38,6 +38,7 @@
     "request": "^2.88.2",
     "rule34js": "^2.2.0",
     "superagent": "^7.1.1",
+    "util": "^0.12.5",
     "uuid": "^8.3.2"
   },
   "devDependencies": {

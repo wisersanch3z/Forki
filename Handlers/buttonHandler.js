@@ -10,7 +10,7 @@ async function loadbButtons(client) {
     client.buttons.set(button.data.name, button);
   });
 
-  return console.log("\nButtons Loaded.");
+  return console.log("\n---Buttons Cargados---");
 }
 
 module.exports = { loadbButtons };

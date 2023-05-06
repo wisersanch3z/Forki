@@ -10,7 +10,7 @@ async function loadModals(client) {
     client.modals.set(modal.data.name, modal);
   });
 
-  return console.log("\nModals Loaded.");
+  return console.log("\n---Modals Cargados---");
 }
 
 module.exports = { loadModals };

@@ -34,9 +34,7 @@ module.exports = {
                `<:Persona:1104252708065648650> - Dueño: ${client.application.owner ? `<@${client.application.owner.id}> \`(${client.application.owner.tag})` : "Nadie"}\``,
                `<:cmd:1104256497573179392> - Comandos de Barra: \`${client.commands.size}\``,
                `<:cmd:1104256497573179392> - Comandos de Prefix: \`${client.prefixs.size}\` `
-               ].join("\n")
-
-                        
+               ].join("\n")        
               },
                    
               {
@@ -49,6 +47,7 @@ module.exports = {
                 ].join("\n"),
                 inline: true
             },
+            
 
                     )
                     .setColor("#2F3136")

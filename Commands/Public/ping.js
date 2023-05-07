@@ -4,6 +4,7 @@ const {
 } = require("discord.js");
 
 module.exports = {
+  developer: true,
   data: new SlashCommandBuilder()
     .setName("ping")
     .setDescription("Te dire PONG jje"),

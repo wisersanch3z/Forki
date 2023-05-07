@@ -11,13 +11,13 @@ module.exports = {
       const command = client.commands.get(interaction.commandName);
       if (!command)
         return interaction.reply({
-          content: "This command is outdated.",
+          content: "<:denied:1104556455182467113> | Comando desactualizado",
           ephermal: true,
         });
 
-      if (command.developer && interaction.user.id !== "581878328357683251")
+      if (command.developer && interaction.user.id !== "540398056588181507")
         return interaction.reply({
-          content: "This copmmand is only available to the developer.",
+          content: "<:denied:1104556455182467113> | Este comando solo esta disponible para mi creador",
           ephermal: true,
         });
 
@@ -26,7 +26,7 @@ module.exports = {
       const { buttons } = client;
       const { customId } = interaction;
       const button = buttons.get(customId);
-      if (!button) return new Error(`Este boton no tiene un codigo`);
+      if (!button) return new Error(`<:denied:1104556455182467113> | Este boton no tiene un codigo`);
 
       try {
         await button.execute(interaction, client);
@@ -37,7 +37,7 @@ module.exports = {
       const { menus } = client;
       const { customId } = interaction;
       const menu = menus.get(customId);
-      if (!menu) return new Error(`Este menu no tiene un codigo`);
+      if (!menu) return new Error(`<:denied:1104556455182467113> | Este menu no tiene un codigo`);
 
       try {
         await menu.execute(interaction, client);
@@ -48,7 +48,7 @@ module.exports = {
       const { modals } = client;
       const { customId } = interaction;
       const modal = modals.get(customId);
-      if (!modal) return new Error(`Este Modal no tiene un codigo`);
+      if (!modal) return new Error(`<:denied:1104556455182467113> | Este Modal no tiene un codigo`);
 
       try {
         await modal.execute(interaction, client);

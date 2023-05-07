@@ -2,13 +2,16 @@ const {
   Client,
   Partials,
   Collection,
+  PermissionFlagsBits,
+  Events,
+  EmbedBuilder,
 } = require("discord.js");
 const { User, Message, GuildMember, ThreadMember } = Partials;
-
 const client = new Client({
   intents: 3276799,
   partials: [User, Message, GuildMember, ThreadMember],
   ws: { properties: { browser: "Discord iOS" } },
+  shard: "auto",
 });
 
 const { loadEvents } = require("./Handlers/eventHandler");

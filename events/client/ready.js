@@ -1,16 +1,33 @@
 const { ActivityType } = require("discord.js");
 const { loadCommands } = require("../../Handlers/commandHandler.js");
 const { loadPrefixs } = require("../../Handlers/prefixHandler.js");
+const mongoose = require("mongoose")
+require("dotenv").config();
 
 
 module.exports = {
   name: "ready",
   once: true,
-  execute(client) {
+
+  
+async execute(client) {
+
+  mongoose.set("strictQuery", true);
+  
+  await mongoose.connect(process.env.mongodb, {
+    keepAlive: true,
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  });
+
+  if(mongoose.connect){
+    console.log("🟩 | Base de datos conectada")
+  }
+
     setInterval(() => {
       const estados = [
-        { name: "bruh", type: ActivityType.Competing },
-        { name: "bruh 2", type: ActivityType.Listening },
+        { name: "Con tu abuela", type: ActivityType.Competing },
+        { name: "Dale Comba", type: ActivityType.Listening },
         { name: `@${client.user.username}`, type: ActivityType.Watching },
       ];
 
@@ -23,6 +40,9 @@ module.exports = {
     loadCommands(client);
     loadPrefixs(client);
 
-    console.log("Bot iniciado");
+    
+
+    
+    console.log("🟩 | Bot arrancado");
   },
 };

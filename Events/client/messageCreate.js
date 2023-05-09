@@ -3,16 +3,18 @@ const { execute } = require("./ready");
 const repeatedWords = {};
 
 
-
+const repitSchema = require('../../Schema/repitSchema')
+  
 module.exports = {
   name: "messageCreate",
   once: false,
   async execute(message, client) {
     let prefix = `.`;
 
-
     if (!message.author.bot) {
- 
+      const data = await repitSchema.findOne({ Guild: message.guild.id});
+      if (!data) return;
+      
    
         const word = message.content.toLowerCase();
       

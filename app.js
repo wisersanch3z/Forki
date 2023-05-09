@@ -10,7 +10,7 @@ const { User, Message, GuildMember, ThreadMember } = Partials;
 const client = new Client({
   intents: 3276799,
   partials: [User, Message, GuildMember, ThreadMember],
-  ws: { properties: { browser: "Discord iOS" } },
+  //ws: { properties: { browser: "Discord iOS" } },
   shard: "auto",
 });
 

@@ -4,7 +4,8 @@ const {
     EmbedBuilder,
   } = require("discord.js");
 
-  const repitSchema = require('../../Schema/repitSchema')
+  const repitSchema = require('../../Schema/repitSchema');
+const { options } = require("superagent");
   
   module.exports = {
     data: new SlashCommandBuilder()
@@ -24,13 +25,16 @@ const {
             
 
    
-    const repetircdoso = thw ? '✅' : '❌';
+    const repetircdoso = thw ? '<:onnn:1105353206051131434>' : '<:off:1105353267246026772>';
 
     const bruh = new EmbedBuilder()
-    .setColor("#2F3136")
-    .setTitle(`🛠 | Configuración establecida en ${interaction.guild.name}`)
-    .setDescription(`Repetir mensajes: ${repetircdoso}`)
-    .setFooter({text: "Forki systems!"})
+    .setColor("0077be")
+    .setThumbnail(interaction.guild.iconURL() || interaction.guild.animatedIconURL())
+    .setTitle(`Configuración establecida en: ${interaction.guild.name}`)
+    .setDescription(
+  `Repetidor de mensajes: ${repetircdoso}\n
+  `)
+    .setFooter({text: `Solicitado por: ${interaction.user.username}`})
 
     interaction.reply({embeds: [bruh]})
 

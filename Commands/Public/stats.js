@@ -50,7 +50,7 @@ module.exports = {
             
 
                     )
-                    .setColor("#2F3136")
+                    .setColor("22CDFF")
             interaction.reply({embeds: [embed]});
     }
 };

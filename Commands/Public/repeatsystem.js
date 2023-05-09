@@ -12,7 +12,7 @@ const {
       .setDescription("Manipula el sistema de repetición de mensajes")
       .addNumberOption(option =>
         option.setName('valor')
-        .setDescription('0=ACTIVAR - 1=DESACTIVAR')
+        .setDescription('0=Desactivar | 1=Activar')
         .setRequired(true)),
     /**
      *
@@ -32,7 +32,7 @@ const {
         if(valor < 0) return interaction.reply({content: "El valor colocado es menor a 0!"})
       
       
-        if(valor == 0){
+        if(valor == 1){
 
     interaction.reply({content: "Haz activado mi repetidor!"})
   
@@ -47,7 +47,7 @@ const {
 
     }
         
-           if(valor == 1){
+           if(valor == 0){
     interaction.reply({content: "Haz desactivado mi repetidor!"})
 
 

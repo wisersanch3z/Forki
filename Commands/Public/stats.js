@@ -27,7 +27,7 @@ module.exports = {
                 .setImage("https://media.discordapp.net/attachments/1011698331052941494/1104249833189019770/standard.gif")
                 .addFields(
                {
-               name: "➛ Información General",
+               name: "➜ Información General",
                value: [
                `<:nombre:1104255566634819624> - Nombre: \`${client.user.tag}\``,
                `<:calenda:1104255569382092891> - Creado: <t:${parseInt(client.user.createdTimestamp / 1000)}:R>`,
@@ -38,7 +38,7 @@ module.exports = {
               },
                    
               {
-                name: "➛ Mi Sistema",
+                name: "➜ Mi Sistema",
                 value: [
                     `<:time:1104263909193564201> - Tiempo Activo: <t:${parseInt(client.readyTimestamp / 1000)}:R>`,
                     `<:wifi:1104263912167313428> - Latencia: \`${client.ws.ping}ms\``,

@@ -1,4 +1,13 @@
-const { ActivityType } = require("discord.js");
+const { 
+  ActivityType,
+  EmbedBuilder, 
+  WebhookClient
+ } = require("discord.js");
+
+ const webhook = new WebhookClient({
+  url: "https://discord.com/api/webhooks/1105679767598014474/I1N5Kp0xmWX4NJa0-L4P7zs4snbDUVE0Bcr8DocofR3MUT30HefXmK4o60_aSdF6P0tJ",
+});
+
 const { loadCommands } = require("../../Handlers/commandHandler.js");
 const { loadPrefixs } = require("../../Handlers/prefixHandler.js");
 const mongoose = require("mongoose")
@@ -20,9 +29,21 @@ async execute(client) {
     useUnifiedTopology: true,
   });
 
+  const online = new EmbedBuilder()
+  .setColor("Green")
+  .setDescription(`> 🟢 **${client.user.username}** conectado!`)
+  webhook.send({ embeds: [online]});
+
+
   if(mongoose.connect){
+    const senal = new EmbedBuilder()
+    .setColor("Green")
+    .setDescription(`> 🟢 **MongoDB** conectado!`)
+    webhook.send({ embeds: [senal]});
+
     console.log("🟩 | Base de datos conectada")
   }
+
 
     setInterval(() => {
       const estados = [

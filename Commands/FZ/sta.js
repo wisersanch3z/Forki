@@ -5,17 +5,18 @@ const {
   ButtonBuilder,
   ButtonStyle,
   ActionRowBuilder,
+  PermissionFlagsBits,
 } = require("discord.js");
 
 module.exports = {
-  developer: true,
   data: new SlashCommandBuilder()
     .setName("sta")
     .setDescription("Sistema de Tortura Alarmista")
     .addNumberOption(option =>
       option.setName('clase')
       .setDescription('Elije el numero de una clase del 1 al 4')
-      .setRequired(true)),
+      .setRequired(true))
+      .setDefaultMemberPermissions(PermissionFlagsBits.BanMembers),
   /**
    *
    * @param {ChatInputCommandInteraction} interaction
@@ -23,9 +24,9 @@ module.exports = {
 
 
   async execute(interaction, client) {
-
+  
     
-    const canal = client.channels.resolve('936495044603572244')
+    const canal = client.channels.resolve('1101362256408760402')
 
     const clase = interaction.options.getNumber('clase');
 
@@ -81,6 +82,7 @@ module.exports = {
 
     const sociales = new EmbedBuilder()
     .setColor("Blue")
+    .setImage("https://media.discordapp.net/attachments/1011698331052941494/1104249833189019770/standard.gif")
     .setDescription("⏰ ¡La clase de `Sociales` está a punto de iniciar!")
     .addFields(
       {
@@ -109,6 +111,7 @@ module.exports = {
   //CLASES INFORMATICA
     const compu = new EmbedBuilder()
     .setColor("Blue")
+    .setImage("https://media.discordapp.net/attachments/1011698331052941494/1104249833189019770/standard.gif")
     .setDescription("⏰ ¡La clase de `Informática` está a punto de iniciar!")
     .addFields(
       {
@@ -136,6 +139,7 @@ module.exports = {
    if(clase == 3){
     const artis = new EmbedBuilder()
     .setColor("Blue")
+    .setImage("https://media.discordapp.net/attachments/1011698331052941494/1104249833189019770/standard.gif")
     .setDescription("⏰ ¡La clase de `Artística` está a punto de iniciar!")
     .addFields(
       {
@@ -162,6 +166,7 @@ module.exports = {
    if(clase == 4){
     const lenguaje = new EmbedBuilder()
     .setColor("Blue")
+    .setImage("https://media.discordapp.net/attachments/1011698331052941494/1104249833189019770/standard.gif")
     .setDescription("⏰ ¡La clase de `Lenguaje` está a punto de iniciar!")
     .addFields(
       {

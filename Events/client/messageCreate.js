@@ -16,16 +16,24 @@ module.exports = {
       if (!data) return;
       
    
-        const word = message.content.toLowerCase();
-      
-        if (repeatedWords[word] && !repeatedWords[word].includes(message.author.id)) {
-          message.channel.send(word);
-          
-          repeatedWords[word].push(message.author.id);
-        } else {
-         
-          repeatedWords[word] = [message.author.id];
-    }   
+    
+if (message.content || message.attachments.size > 0) {
+  const content = message.content.toLowerCase();
+  const attachments = message.attachments.map(a => a.url).join('\n');
+  const key = content + attachments;
+  
+  if (repeatedWords[key] && !repeatedWords[key].includes(message.author.id)) {
+    if (message.content) {
+      message.channel.send(content);
+    }
+    if (message.attachments.size > 0) {
+      message.channel.send(attachments);
+    }
+    repeatedWords[key].push(message.author.id);
+  } else {
+    repeatedWords[key] = [message.author.id];
+    }
+  }
   }
 
     if (!message.content.startsWith(prefix) || message.author.bot) return;

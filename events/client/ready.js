@@ -11,6 +11,7 @@ const {
 const { loadCommands } = require("../../Handlers/commandHandler.js");
 const { loadPrefixs } = require("../../Handlers/prefixHandler.js");
 const mongoose = require("mongoose")
+const axios = require("axios")
 require("dotenv").config();
 
 
@@ -20,6 +21,9 @@ module.exports = {
 
   
 async execute(client) {
+
+
+ 
 
   mongoose.set("strictQuery", true);
   

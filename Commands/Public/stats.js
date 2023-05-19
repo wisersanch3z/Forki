@@ -14,6 +14,8 @@ module.exports = {
         .setName("stats")
         .setDescription("Comando para ver mis estadísticas")
         .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
+        category: "Public",
+        usage: "",
     /**
      * @param {ChatInputCommandInteraction} interaction 
      */
@@ -31,7 +33,7 @@ module.exports = {
                value: [
                `<:nombre:1104255566634819624> - Nombre: \`${client.user.tag}\``,
                `<:calenda:1104255569382092891> - Creado: <t:${parseInt(client.user.createdTimestamp / 1000)}:R>`,
-               `<:Persona:1104252708065648650> - Dueño: ${client.application.owner ? `<@${client.application.owner.id}> \`(${client.application.owner.tag})` : "Nadie"}\``,
+               `<a:dev:1106365526218915852> - Dueño: ${client.application.owner ? `<@${client.application.owner.id}> \`(${client.application.owner.tag})` : "Nadie"}\``,
                `<:cmd:1104256497573179392> - Comandos de Barra: \`${client.commands.size}\``,
                `<:cmd:1104256497573179392> - Comandos de Prefix: \`${client.prefixs.size}\` `
                ].join("\n")        
@@ -50,7 +52,7 @@ module.exports = {
             
 
                     )
-                    .setColor("22CDFF")
+                    .setColor("0077be")
             interaction.reply({embeds: [embed]});
     }
 };

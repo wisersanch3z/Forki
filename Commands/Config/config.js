@@ -11,6 +11,8 @@ const { options } = require("superagent");
     data: new SlashCommandBuilder()
       .setName("config")
       .setDescription("Mira la configuración establecida en este servidor"),
+      category: "Public",
+      usage: "",
     /**
      *
      * @param {ChatInputCommandInteraction} interaction
@@ -28,7 +30,7 @@ const { options } = require("superagent");
     const repetircdoso = thw ? '<:onnn:1105353206051131434>' : '<:off:1105353267246026772>';
 
     const bruh = new EmbedBuilder()
-    .setColor("0077be")
+    .setColor("22CDFF")
     .setThumbnail(interaction.guild.iconURL() || interaction.guild.animatedIconURL())
     .setTitle(`Configuración establecida en: ${interaction.guild.name}`)
     .setDescription(

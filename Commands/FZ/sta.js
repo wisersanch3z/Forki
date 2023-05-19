@@ -17,6 +17,8 @@ module.exports = {
       .setDescription('Elije el numero de una clase del 1 al 4')
       .setRequired(true))
       .setDefaultMemberPermissions(PermissionFlagsBits.BanMembers),
+      category: "FZ",
+      usage: "<1 al 4>",
   /**
    *
    * @param {ChatInputCommandInteraction} interaction

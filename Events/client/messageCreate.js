@@ -11,6 +11,8 @@ module.exports = {
   async execute(message, client) {
     let prefix = `.`;
 
+   
+    
     if (!message.author.bot) {
       const data = await repitSchema.findOne({ Guild: message.guild.id});
       if (!data) return;

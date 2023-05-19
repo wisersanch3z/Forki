@@ -10,7 +10,7 @@ async function loadbMenus(client) {
     client.menus.set(menu.data.name, menu);
   });
 
-  return console.log("\nMenus Loaded.");
+  return console.log("\n---Menus Cargados---");
 }
 
 module.exports = { loadbMenus };

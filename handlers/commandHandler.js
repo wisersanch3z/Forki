@@ -20,7 +20,10 @@ async function loadCommands(client) {
 
   client.application.commands.set(commandsArray);
 
+
   return console.log(table.toString(), "\n---SlashCommands Cargados---");
+
+
 }
 
 module.exports = { loadCommands };

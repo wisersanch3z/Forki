@@ -18,7 +18,7 @@ const {
           )
         .setDescription('Eleji una opcion')
         .setRequired(true)),
-        category: "Staff",
+        category: "Config",
         usage: "<Activar | Desactivar>",
    
    

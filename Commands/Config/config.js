@@ -11,7 +11,7 @@ const { options } = require("superagent");
     data: new SlashCommandBuilder()
       .setName("config")
       .setDescription("Mira la configuración establecida en este servidor"),
-      category: "Public",
+      category: "Config",
       usage: "",
     /**
      *

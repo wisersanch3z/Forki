@@ -19,6 +19,7 @@ module.exports = {
       .setDefaultMemberPermissions(PermissionFlagsBits.BanMembers),
       category: "FZ",
       usage: "<1 al 4>",
+      developer: "true",
   /**
    *
    * @param {ChatInputCommandInteraction} interaction

@@ -12,14 +12,14 @@ module.exports = {
       if (!command)
         return interaction.reply({
           content: "<:denied:1104556455182467113> | Comando desactualizado",
-          ephermal: true,
+          ephemeral: true,
         });
 
       
-      if (command.developer && interaction.user.id !== ["540398056588181507"])
+      if (command.developer && interaction.user.id !== "540398056588181507")
         return interaction.reply({
           content: "<:denied:1104556455182467113> | Este comando solo esta disponible para mi creador",
-          ephermal: true,
+          ephemeral: true,
         });
 
       command.execute(interaction, client);

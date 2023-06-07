@@ -7,6 +7,7 @@ const {
     StringSelectMenuBuilder,
     IntegrationApplication,
     ButtonBuilder,
+    ButtonStyle,
   } = require("discord.js");
 
 
@@ -69,17 +70,28 @@ const {
            
             let paginaActual = 0;
             if (embeds.length === 1) return interaction.channel.send({ embeds: [embeds[0]] }).catch(() => { });
-            let boton_atras = new ButtonBuilder().setStyle('Secondary').setCustomId('Volver').setEmoji('⚽').setLabel('Volver')
-            let boton_avanzar = new ButtonBuilder().setStyle('Secondary').setCustomId('Siguiente').setEmoji('🏀').setLabel('Siguiente')
+            let boton_atras = new ButtonBuilder()
+            .setStyle('Secondary')
+            .setCustomId('Volver')
+            .setEmoji('1109675496654000219')
+           
+            let boton_avanzar = new ButtonBuilder()
+            .setStyle("Primary")
+            .setCustomId('Siguiente')
+            .setEmoji('1109741960715055214')
+            
             let embedpaginas = await interaction.channel.send({
                 content: `❗ | Has clic en los botones, para volver o ir a la siguiente pagina`,
                 embeds: [embeds[0].setFooter({ text: `Pagina ${paginaActual + 1}/${embeds.length}` })],
                 components: [new ActionRowBuilder().addComponents([boton_atras, boton_avanzar])]
             });
             
-            const collector = embedpaginas.createMessageComponentCollector({ filter: i => i?.isButton() && i?.user && i?.user.id && client.user.id, time: 180e3 });
+            const collector = embedpaginas.createMessageComponentCollector({
+                 filter: i => i?.isButton() && i?.user && i?.user.id && client.user.id, time: 180e3 
+                });
             collector.on("collect", async b => {                                            
-                if (!b?.user || b.user.id !== interaction.user.id) return b?.reply({ content: `Solo la persona que ejecutó el slash puede usarlo` });
+                if (!b?.user || b.user.id !== interaction.user.id) 
+                return b?.reply({ content: `<:warningf:1109631272529186928> | Solo <@${interaction.user.id}> puede usarlo`, ephemeral: true});
 
                 switch (b?.customId) {
                     case "Volver": {

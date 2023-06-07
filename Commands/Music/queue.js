@@ -79,7 +79,7 @@ const {
             
             const collector = embedpaginas.createMessageComponentCollector({ filter: i => i?.isButton() && i?.user && i?.user.id && client.user.id, time: 180e3 });
             collector.on("collect", async b => {                                            
-                if (b?.user.id !== interaction.author.id) return b?.reply({ content: `Solo la persona que ejecuto el slash puede usarlo` });
+                if (!b?.user || b.user.id !== interaction.user.id) return b?.reply({ content: `Solo la persona que ejecutó el slash puede usarlo` });
 
                 switch (b?.customId) {
                     case "Volver": {

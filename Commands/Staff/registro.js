@@ -21,15 +21,10 @@ module.exports = {
     const estosw = elwe || interaction.user;
     const persona = await interaction.guild.members.fetch(estosw.id);
 
-    const pageSize = 10; // Número de sanciones por página
+    const pageSize = 6; // Número de sanciones por página
     let page = 1; // Página actual
 
-    const date = new Date().toLocaleDateString('es-ES', {
-      day: '2-digit',
-      month: '2-digit',
-      year: '2-digit',
-    });
-
+  
     function showPage(page, interaction, persona) {
       historySchema.find({ guild: interaction.guild.id, usuario: persona.id })
         .then(registro => {
@@ -39,8 +34,8 @@ module.exports = {
 
           const elembed = new EmbedBuilder()
             .setColor("0077be")
-            .setThumbnail(interaction.guild.iconURL({ format: 'png', dynamic: true, size: 1024 }))
-            .setTitle(`Sanciones de: ${persona.user.tag}`);
+            .setThumbnail(persona.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
+            .setTitle(`Registro de sanciones de: ${persona.user.tag}`);
 
           const startIndex = (page - 1) * pageSize;
           const endIndex = startIndex + pageSize;
@@ -48,9 +43,17 @@ module.exports = {
 
           pageSanciones.forEach(sancion => {
             elembed.addFields({
-              name: `<:warningf:1109631272529186928> - \`#${sancion.sanciones}\` | Tipo: ${sancion.tipo}:`,
-              value: `Por: \`${sancion.moderador}\`\nMotivo: \`${sancion.razon}\`\nFecha: \`${sancion.fecha}\``,
+              name: `- **#${sancion.sanciones}** | <t:${sancion.fecha}:D>`,
+              value: `<:11:1105665875731816549>**Moderador:** ${sancion.moderador}\n<:11:1105665875731816549>**Razón:** ${sancion.razon}\n**<:12:1105665933390925824>Sanción aplicada:** ${sancion.tipo}`,
+              
+              //value: `Por: \`${sancion.moderador}\` \nMotivo: \`${sancion.razon}\`\nFecha: \`${sancion.fecha}\``,
+              inline: false,
             });
+          });
+
+          elembed.setFooter({
+            text: `Total de sanciones: ${registro.length} en: ${interaction.guild.name}`,
+            iconURL: `${interaction.guild.iconURL({ format: 'png', dynamic: true, size: 1024 })}`
           });
 
           if (registro.length > pageSize) {
@@ -60,7 +63,7 @@ module.exports = {
             let prevBtn = new ButtonBuilder()
               .setCustomId('previous_button')
               .setStyle(ButtonStyle.Primary)
-              .setLabel('atras');
+              .setEmoji("1109675496654000219")
             if (page === 1)
               prevBtn.setDisabled();
 
@@ -68,7 +71,7 @@ module.exports = {
             let nextBtn = new ButtonBuilder()
               .setCustomId('next_button')
               .setStyle(ButtonStyle.Secondary)
-              .setLabel('siguiente');
+              .setEmoji("1109741960715055214")
             if (page >= numPages)
               nextBtn.setDisabled();
 

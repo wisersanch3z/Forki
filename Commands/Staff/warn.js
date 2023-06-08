@@ -37,13 +37,10 @@ module.exports = {
 
     const motivowe = textomotivo || 'Sin motivo registrado';
 
-    const date = new Date().toLocaleDateString('es-ES', {
-      day: '2-digit',
-      month: '2-digit',
-      year: '2-digit',
-    });
-
-    const tipo = "Advertencia";
+    const date = new Date(); // Obtener la fecha actual
+    const unixTimestamp = Math.floor(date.getTime() / 1000); // Convertir la fecha en marca de tiempo UNIX
+    
+    const tipo = "Warn";
 
     registro.findOne({ usuario: tonto, guild: interaction.guild.id })
       .then((result, index) => {
@@ -57,7 +54,7 @@ module.exports = {
           .setThumbnail(persona.displayAvatarURL())
           .setDescription(`:police_officer: Responsable: ${interaction.user}\n:rightt: Motivo: \`${motivowe}\`\n\n> Tipo: **${tipo}**`)
           .setFooter({
-            text: `Fecha: ${date} - Caso Número: #${contador}`
+            text: `Caso Número: #${contador}`
           })
           .setTimestamp();
 
@@ -67,7 +64,7 @@ module.exports = {
           usuario: tonto,
           moderador: interaction.user.tag,
           razon: motivowe,
-          fecha: date,
+          fecha: unixTimestamp,
           tipo: tipo,
           sanciones: contador
         });

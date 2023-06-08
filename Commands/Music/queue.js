@@ -73,12 +73,12 @@ const {
             let boton_atras = new ButtonBuilder()
             .setStyle('Secondary')
             .setCustomId('Volver')
-            .setEmoji('1109675496654000219')
-           
+            .setEmoji('1109675496654000219');
+        
             let boton_avanzar = new ButtonBuilder()
             .setStyle("Primary")
             .setCustomId('Siguiente')
-            .setEmoji('1109741960715055214')
+            .setEmoji('1109741960715055214');
             
             let embedpaginas = await interaction.channel.send({
                 content: `❗ | Has clic en los botones, para volver o ir a la siguiente pagina`,
@@ -127,9 +127,17 @@ const {
                 }
             });
             collector.on("end", () => {
-                embedpaginas.components[0].components.map(boton => boton.disabled = true)
-                embedpaginas.edit({content: `Tiempo expirado, vuelve a escribir el comando para interactuar nuevamente\``, embeds: [embeds[paginaActual].setFooter({ text: `Pagina ${paginaActual + 1}/${embeds.length}` })], components: [embedpaginas.components[0]] }).catch(() => { });
+                embedpaginas.components[0].components.forEach((boton) => {
+                    boton.setDisabled(true);
+                });
+            
+                embedpaginas.edit({
+                    content: `:x: Tiempo expirado`,
+                    embeds: [embeds[paginaActual].setFooter({ text: `Pagina ${paginaActual + 1}/${embeds.length}` })],
+                    components: [embedpaginas.components[0]],
+                }).catch(() => {});
             });
+            
         }
 
     

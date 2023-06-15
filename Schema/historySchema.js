@@ -7,7 +7,7 @@ let historySchema = new Schema({
   razon: String, //si
   fecha: String, //si
   tipo: String, //si
-  sanciones: Number, //si
+  content: Array, //no
 });
  
 /*

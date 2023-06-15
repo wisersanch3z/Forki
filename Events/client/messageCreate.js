@@ -9,7 +9,7 @@ module.exports = {
   name: "messageCreate",
   once: false,
   async execute(message, client) {
-    let prefix = `.`;
+    let prefix = `?`;
 
    
     

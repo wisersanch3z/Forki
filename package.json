@@ -46,6 +46,7 @@
     "opusscript": "^0.0.8",
     "path": "^0.12.7",
     "play-dl": "^1.8.8",
+    "quickchart-js": "^3.1.2",
     "request": "^2.88.2",
     "rule34js": "^2.2.0",
     "samp-query": "^0.1.5",

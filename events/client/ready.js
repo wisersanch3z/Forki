@@ -5,7 +5,7 @@ const {
  } = require("discord.js");
 
  const webhook = new WebhookClient({
-  url: "https://discord.com/api/webhooks/1105679767598014474/I1N5Kp0xmWX4NJa0-L4P7zs4snbDUVE0Bcr8DocofR3MUT30HefXmK4o60_aSdF6P0tJ",
+  url: "https://discord.com/api/webhooks/1117215016605728768/CckTbMgD4360QMQuRvgrhgBYz_8aV88aksbVt0-OlIFUvZD47xyB7DTsYEnSJPnjIR5G",
 });
 
 const { loadCommands } = require("../../Handlers/commandHandler.js");

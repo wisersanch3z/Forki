@@ -80,9 +80,9 @@ const { options } = require("superagent");
           Bienvenido al \`Panel de Ayuda\` de mi: ${client.user}, agradezco que utilizes mis funcionalidades. 
           [ <:warningf:1109631272529186928> ]TODAVIA ME ENCUENTRO EN DESARROLLO
            \n\nA continuación, con el siguiente menu abajo de este mensaje podras visualizar todas mis categorias, mira el que te llame la atención!\n
-          <:config:1109232388216721430> | \`Configuración\`\n
-          <:public:1109232387340128276> | \`Público\`\n
-          <:warningf:1109631272529186928> | \`Moderación\`\n
+          <:config:1109232388216721430> | \`Configuración\`
+          <:public:1109232387340128276> | \`Público\`
+          <:warningf:1109631272529186928> | \`Moderación\`
           <:disco:1109622835229499402> | \`Música\`
         `)
         .setFooter({

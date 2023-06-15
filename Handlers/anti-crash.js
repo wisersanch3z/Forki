@@ -1,7 +1,7 @@
 const { EmbedBuilder, WebhookClient } = require("discord.js");
 const { inspect } = require("util");
 const webhook = new WebhookClient({
-  url: "https://discord.com/api/webhooks/1104236247045656637/S6XjGt263XPkwY-aIYOOpweN_jPW1XZNG8ln6GFqIV2RCKY2G6PDV_5wWanxRNPbJWZt",
+  url: "https://discord.com/api/webhooks/1117213654744567881/TMavAeBPzRKkBF2tjQ_s_xx6WlHeDnapP1DV53yDfgvVG5dgKro9Ms_ynC1WjTclBPiL",
 });
 
 module.exports = (client) => {

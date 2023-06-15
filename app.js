@@ -43,7 +43,7 @@ require("dotenv").config();
 client.on(Events.InteractionCreate, async interaction => {
 
   const webhook = new WebhookClient({
-    url: "https://discord.com/api/webhooks/1104236247045656637/S6XjGt263XPkwY-aIYOOpweN_jPW1XZNG8ln6GFqIV2RCKY2G6PDV_5wWanxRNPbJWZt",
+    url: "https://discord.com/api/webhooks/1117215077582524487/5-ogyjzZiZGwNSItRaktk8T1GhegPbDATYW7V2Vduir2ldMzZSG7uSs2JhvME2EW_zCO",
   });
 
   if (!interaction) return;

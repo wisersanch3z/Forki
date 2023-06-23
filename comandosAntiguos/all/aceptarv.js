@@ -27,7 +27,7 @@ client.channels.resolve('967116194186424320').send(`✅ | ¡El usuario <@${perso
 
 
 persona.roles.add(rol).catch((e) => message.reply('Ocurrio un error')).then(() => {
-    message.channel.send(`Listo, rol \`${rol.name}\` al solicitante \`${persona.user.tag}\``);
+    message.channel.send(`Listo, rol \`${rol.name}\` al solicitante \`${persona.user.username}\``);
 });
     }
 }

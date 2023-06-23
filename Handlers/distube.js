@@ -48,9 +48,9 @@ module.exports = (client, discord, interaction) => {
                 
                   `)
                   .setThumbnail(song.thumbnail)
-                  .setColor('0077be')
+                  .setColor('${client.config.color}')
                   .setFooter({
-                    text: `Forki-DJ | Añadido por: ${user.tag}`,
+                    text: `Forki-DJ | Añadido por: ${user.username}`,
                     iconURL: client.user.displayAvatarURL()
                   })
                   .setTimestamp()
@@ -67,9 +67,9 @@ module.exports = (client, discord, interaction) => {
             <:disco:1109622835229499402> [${song.name}](${song.url}) ha sido agregado a la cola!
             `)
             .setThumbnail(song.thumbnail)
-            .setColor("0077be")
+            .setColor(`${client.config.color}`)
             .setFooter({
-             text: `Forki-DJ | Añadido por: ${user.tag}`,
+             text: `Forki-DJ | Añadido por: ${user.username}`,
             iconURL: client.user.displayAvatarURL()
               })
             .setTimestamp()

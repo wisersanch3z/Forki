@@ -35,35 +35,35 @@ module.exports = {
           }
 
           const elembed = new EmbedBuilder()
-            .setColor("0077be")
+            .setColor(`${client.config.color}`)
             .setThumbnail(persona.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
-            .setTitle(`Registro de sanciones de: ${persona.user.tag}`);
+            .setTitle(`Registro de sanciones de: ${persona.user.username}`);
 
           const startIndex = (page - 1) * pageSize;
           const endIndex = startIndex + pageSize;
           const pageSanciones = Array.from(data.content).slice(startIndex, endIndex);
 
           pageSanciones.forEach((sancion, index) => {
-         
+
             elembed.addFields(
               {
                 name: `• ${startIndex + index + 1} | <t:${sancion.fecha}:D>`,
                 value: [
                   `<:11:1105665875731816549>**Moderador:** <@${sancion.moderador}>\n<:11:1105665875731816549>**Razón:** ${sancion.razon}\n**<:12:1105665933390925824>Sanción aplicada:** ${sancion.tipo}`,
-      
+
                 ].join("\n"),
                 inline: false
               }
             )
-      });
+          });
 
           elembed.setFooter({
             text: `Total de sanciones: ${data.content.length} en: ${interaction.guild.name}`,
             iconURL: interaction.guild.iconURL({ format: 'png', dynamic: true, size: 1024 }) || 'https://imagepng.org/wp-content/uploads/2018/08/alerta-2.png'
           });
-         
-          if (data.length > pageSize) {
-            let numPages = Math.ceil(data.length / pageSize);
+
+          if (data.content.length > pageSize) {
+            let numPages = Math.ceil(data.content.length / pageSize);
 
             // Create previous button
             let prevBtn = new ButtonBuilder()

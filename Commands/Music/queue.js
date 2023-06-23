@@ -53,7 +53,7 @@ const {
                 .setDescription(`
                 <:queue:1109674322043359294> | **Lista de Canciones**:\n\n${desc}
                 `)
-                .setColor("0077be")
+                .setColor(`${client.config.color}`)
                 
                 .setFooter({
                   text: "Forki | Cola de música",

@@ -44,7 +44,7 @@ const {
                     datasets: [{
                         label: 'Conteo de Miembros',
                         data: [totalMembers, miembrosreales, botMembers, horas24, dias7],
-                        backgroundColor: ['#0077be', '#1506fa', '#1005dd', '#0b03bf', '#5938f7']
+                        backgroundColor: ['#${client.config.color}', '#1506fa', '#1005dd', '#0b03bf', '#5938f7']
                     }]
                 },
                 options: {
@@ -72,9 +72,9 @@ const {
         const embed = new EmbedBuilder()
 
             .setTitle(`Información de miembros en: ${interaction.guild.name}`)
-            .setColor('0077be')
+            .setColor('${client.config.color}')
             .setFooter({ text: `Solicitado por: ${interaction.user.username}`, iconURL: interaction.user.displayAvatarURL({dynamic: true, size: 1024})})
-            .setDescription(`<:11:1105665875731816549>Total de Miembros: **${totalMembers}**\n<:11:1105665875731816549>Miembros: **${miembrosreales}**\n<:11:1105665875731816549>Bots: **${botMembers}**\n<:11:1105665875731816549>En 24h: **${horas24}**\n<:12:1105665933390925824>Ultimos 7 dias: **${dias7}**`)
+            .setDescription(`<:10:1121276798227972229>Total de Miembros: **${totalMembers}**\n<:11:1105665875731816549>Miembros: **${miembrosreales}**\n<:11:1105665875731816549>Bots: **${botMembers}**\n<:11:1105665875731816549>En 24h: **${horas24}**\n<:12:1105665933390925824>Ultimos 7 dias: **${dias7}**`)
             .setImage(chartUrl);
 
         await interaction.reply({ embeds: [embed] });

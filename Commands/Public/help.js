@@ -35,33 +35,33 @@ const { options } = require("superagent");
         .addOptions([
           {
             label: "Menu Principal",
-            description: "Menu Principa",
+            description: "Menu Principal",
             value: "uno",
-            emoji: "⚙️",
+            emoji: "1119458898609455115",
           },
           {
             label: "Configuracion",
             description: "Comandos de Configuracion",
             value: "dos",
-            emoji: "🔧",
+            emoji: "1109232388216721430",
           },
           {
             label: "Público",
             description: "Comandos publicos",
             value: "tres",
-            emoji: "👥",
-          },
-          {
-            label: "Música",
-            description: "Comandos para escuchar tu música",
-            value: "cuatro",
-            emoji: "📀",
+            emoji: "1109232387340128276",
           },
           {
             label: "Moderacióm",
             description: "Comandos para moderar tu servidor",
             value: "cinco",
-            emoji: "⚠",
+            emoji: "1109232388216721430",
+          },
+          {
+            label: "Música",
+            description: "Comandos de Música",
+            value: "cuatro",
+            emoji: "1109622835229499402",
           },
         ])
       );
@@ -69,25 +69,23 @@ const { options } = require("superagent");
 
       
         const principal = new EmbedBuilder()
-        .setColor("0077be")
+        .setColor(`${client.config.color}`)
         .setImage("https://media.discordapp.net/attachments/1011698331052941494/1104249833189019770/standard.gif")
         .setThumbnail(client.user.displayAvatarURL({size:1024}))
-        .setAuthor({
-          name:"<:succs:1109633125618811021> |  Panel de ayuda", 
-          iconURL: user.avatarURL({dynamic:true, size:1024})
+        .addFields({
+          name: `▸ Bienvenido al Panel de Ayuda`,
+          value: `Aquí encontrarás información sobre mis comandos y funcionalidades.
+           Aún estoy en desarrollo, pero estoy trabajando para ofrecerte una gran experiencia.`
+        },{
+          name: `▸ Categorias Disponibles:`,
+          value: `<:config:1109232388216721430> | \`Configuración\`\n<:public:1109232387340128276> | \`Público\`\n<:warningf:1109631272529186928> | \`Moderación\`\n<:disco:1109622835229499402> | \`Música\``
+        },{
+          name: `▸ Adicional:`,
+          value: `\`\`\`js\n<> Campo Obligatorio\n() Campo Opcional\`\`\``
         })
-        .setDescription(`
-          Bienvenido al \`Panel de Ayuda\` de mi: ${client.user}, agradezco que utilizes mis funcionalidades. 
-          [ <:warningf:1109631272529186928> ]TODAVIA ME ENCUENTRO EN DESARROLLO
-           \n\nA continuación, con el siguiente menu abajo de este mensaje podras visualizar todas mis categorias, mira el que te llame la atención!\n
-          <:config:1109232388216721430> | \`Configuración\`
-          <:public:1109232387340128276> | \`Público\`
-          <:warningf:1109631272529186928> | \`Moderación\`
-          <:disco:1109622835229499402> | \`Música\`
-        `)
         .setFooter({
-          text: `Panel de ayuda - Solicitado por: ${user.username}`, 
-          iconURL: interaction.guild.iconURL({ format: 'png', dynamic: true, size: 1024 })
+          text: `Solicitado por ${user.username}`, 
+          iconURL: interaction.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 })
         })
       
         interaction.reply({
@@ -127,55 +125,68 @@ const { options } = require("superagent");
 
         //CONFIIIIIIIIIG
         const config = new EmbedBuilder()
-        .setTitle("Comandos de Configuración")
-        .setDescription(`\`${cantidadConfig}\` Comandos existentes en esta categoria`)
-        .setFooter({ text: "Panel de Configuración" })
         .addFields({
-          name: "<:config:1109232388216721430> | Comandos:",
+          name: `▸ ${cantidadConfig} Comandos disponibles`,
           value: `\`\`\`js\n${Config}\n\`\`\``
+        },{
+          name: `▸ Adicional:`,
+          value: `\`\`\`js\n<> Campo Obligatorio\n() Campo Opcional\`\`\``
+        })
+        .setFooter({
+          text: `Solicitado por ${user.username}`, 
+          iconURL: interaction.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 })
         })
         .setTimestamp()
-        .setColor("0077be");
+        .setColor(`${client.config.color}`);
 
         //PUBLICOOOO
       const publi = new EmbedBuilder()
-        .setTitle("Comandos públicos")
-        .setDescription(`\`${cantidadPublico}\` Comandos existentes en esta categoria`)
         .addFields({
-          name: "<:public:1109232387340128276> | Comandos:",
+          name: `▸ ${cantidadPublico} Comandos disponibles`,
           value: `\`\`\`js\n${publico}\n\`\`\``
+        },{
+          name: `▸ Adicional:`,
+          value: `\`\`\`js\n<> Campo Obligatorio\n() Campo Opcional\`\`\``
         })
-        
-        .setFooter({ text: "Panel de Publico" })
+        .setFooter({
+          text: `Solicitado por ${user.username}`, 
+          iconURL: interaction.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 })
+        })
         .setTimestamp()
-        .setColor("0077be");
+        .setColor(`${client.config.color}`);
 
         //MUSICAAAAA
         const elmusic = new EmbedBuilder()
-        .setTitle("Comandos de Música")
-        .setDescription(`\`${cantidadMusic}\` Comandos existentes en esta categoria`)
         .addFields({
-          name: "<:disco:1109622835229499402>  | Comandos:",
+          name: `▸ ${cantidadMusic} Comandos disponibles`,
           value: `\`\`\`js\n${musica}\n\`\`\``
+        },{
+          name: `▸ Adicional:`,
+          value: `\`\`\`js\n<> Campo Obligatorio\n() Campo Opcional\`\`\``
         })
-        
-        .setFooter({ text: "Panel de Música" })
+        .setFooter({
+          text: `Solicitado por ${user.username}`, 
+          iconURL: interaction.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 })
+        })
         .setTimestamp()
-        .setColor("0077be");
+        .setColor(`${client.config.color}`);
 
         //STAAAFF
 
         const elstaff = new EmbedBuilder()
-        .setTitle("Comandos de Moderación")
-        .setDescription(`\`${cantidadStaff}\` Comandos existentes en esta categoria`)
         .addFields({
-          name: "<:warningf:1109631272529186928>  | Comandos:",
+          name: `▸ ${cantidadStaff} Comandos disponibles`,
           value: `\`\`\`js\n${Staff}\n\`\`\``
+        },{
+          name: `▸ Adicional:`,
+          value: `\`\`\`js\n<> Campo Obligatorio\n() Campo Opcional\`\`\``
         })
-        
-        .setFooter({ text: "Panel de Moderación" })
+        .setFooter({
+          text: `Solicitado por ${user.username}`, 
+          iconURL: interaction.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 })
+        })
         .setTimestamp()
-        .setColor("0077be");
+        .setColor(`${client.config.color}`);
   
   
      

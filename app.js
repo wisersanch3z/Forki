@@ -20,7 +20,7 @@ const { loadbMenus } = require("./Handlers/menuHandler");
 const { loadModals } = require("./Handlers/modalHandler");
 const { loadbButtons } = require("./Handlers/buttonHandler");
 
-
+client.config = require("./config.json");
 client.events = new Collection();
 client.commands = new Collection();
 client.buttons = new Collection();
@@ -51,7 +51,7 @@ client.on(Events.InteractionCreate, async interaction => {
   else {
     const server = interaction.guild.name
     const serverId = interaction.guild.id
-    const user = interaction.user.tag
+    const user = interaction.user.username
     const userId = interaction.user.id
 
     const embed = new EmbedBuilder()

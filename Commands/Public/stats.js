@@ -12,8 +12,7 @@ const {
 module.exports = {
     data: new SlashCommandBuilder()
         .setName("stats")
-        .setDescription("Comando para ver mis estadísticas")
-        .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
+        .setDescription("Visualiza las estadisticas de mi!"),
         category: "Public",
         usage: "",
     /**
@@ -22,6 +21,8 @@ module.exports = {
     async execute(interaction, client) {
         await client.application.fetch();
    
+        const totalMembers = await interaction.client.guilds.cache.reduce((acc, guild) => acc + guild.memberCount, 0);
+ 
         const getChannelTypeSize = type => client.channels.cache.filter(channel => type.includes(channel.type)).size;
         const embed = new EmbedBuilder()
                 .setTitle(`Estadísticas de ${client.user.username}`)
@@ -29,18 +30,19 @@ module.exports = {
                 .setImage("https://media.discordapp.net/attachments/1011698331052941494/1104249833189019770/standard.gif")
                 .addFields(
                {
-               name: "➜ Información General",
+               name: "• Información General",
                value: [
-               `<:nombre:1104255566634819624> - Nombre: \`${client.user.tag}\``,
+               `<:nombre:1104255566634819624> - Nombre: \`${client.user.username}\``,
                `<:calenda:1104255569382092891> - Creado: <t:${parseInt(client.user.createdTimestamp / 1000)}:R>`,
-               `<a:dev:1106365526218915852> - Dueño: ${client.application.owner ? `<@${client.application.owner.id}> \`(${client.application.owner.tag})` : "Nadie"}\``,
+               `<a:dev:1106365526218915852> - Dueño: ${client.application.owner ? `<@${client.application.owner.id}> \`(${client.application.owner.id})` : "Wisero"}\``,
                `<:cmd:1104256497573179392> - Comandos de Barra: \`${client.commands.size}\``,
-               `<:cmd:1104256497573179392> - Comandos de Prefix: \`${client.prefixs.size}\` `
+               `:open_file_folder: - Estoy en: \`${client.guilds.cache.size}\` servidores`,
+               `<:Persona:1104252708065648650> - Viendo \`${totalMembers}\` usuarios`
                ].join("\n")        
               },
                    
               {
-                name: "➜ Mi Sistema",
+                name: "• Mi Sistema",
                 value: [
                     `<:time:1104263909193564201> - Tiempo Activo: <t:${parseInt(client.readyTimestamp / 1000)}:R>`,
                     `<:wifi:1104263912167313428> - Latencia: \`${client.ws.ping}ms\``,
@@ -52,7 +54,7 @@ module.exports = {
             
 
                     )
-                    .setColor("0077be")
+                    .setColor(`${client.config.color}`)
             interaction.reply({embeds: [embed]});
     }
 };

@@ -46,7 +46,7 @@ const {
         
         .setColor("Green")
         .setFooter({
-         text: `Forki-DJ | Cambiado por: ${user.tag}`,
+         text: `Forki-DJ | Cambiado por: ${user.username}`,
         iconURL: client.user.displayAvatarURL()
           })
         .setTimestamp()

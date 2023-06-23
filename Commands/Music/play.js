@@ -38,7 +38,7 @@ const {
             textChannel: interaction.channel,
             interaction
         });
-        interaction.reply(`> Buscando: \`${cancion}\`...`);
+        interaction.reply({content: `> Buscando la música colocada...`, ephemeral:true});
 
 
     }

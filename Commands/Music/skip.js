@@ -33,13 +33,13 @@ const {
         if(interaction.guild.members.me.voice?.channel && interaction.member.voice?.channel.id != interaction.guild.members.me.voice?.channel.id) return interaction.reply(`<:warningf:1109631272529186928> Tenemos que estar en el mismo canal de voz`);
         const song = await queue.skip()
         const skipp = new EmbedBuilder()
-        .setColor('0077be')
+        .setColor('${client.config.color}')
         .setDescription(`
         <:succs:1109633125618811021> | ¡Se ha saltado la música actual!\n
         Ahora suena: \`${song.name}\`
         `)
         .setFooter({
-        text: `Saltado por: ${user.tag}`,
+        text: `Saltado por: ${user.username}`,
         iconURL: user.displayAvatarURL()
         })
        

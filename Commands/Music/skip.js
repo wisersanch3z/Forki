@@ -33,7 +33,7 @@ const {
         if(interaction.guild.members.me.voice?.channel && interaction.member.voice?.channel.id != interaction.guild.members.me.voice?.channel.id) return interaction.reply(`<:warningf:1109631272529186928> Tenemos que estar en el mismo canal de voz`);
         const song = await queue.skip()
         const skipp = new EmbedBuilder()
-        .setColor('${client.config.color}')
+        .setColor(`${client.config.color}`)
         .setDescription(`
         <:succs:1109633125618811021> | ¡Se ha saltado la música actual!\n
         Ahora suena: \`${song.name}\`

@@ -72,7 +72,7 @@ const {
         const embed = new EmbedBuilder()
 
             .setTitle(`Información de miembros en: ${interaction.guild.name}`)
-            .setColor('${client.config.color}')
+            .setColor(`${client.config.color}`)
             .setFooter({ text: `Solicitado por: ${interaction.user.username}`, iconURL: interaction.user.displayAvatarURL({dynamic: true, size: 1024})})
             .setDescription(`<:10:1121276798227972229>Total de Miembros: **${totalMembers}**\n<:11:1105665875731816549>Miembros: **${miembrosreales}**\n<:11:1105665875731816549>Bots: **${botMembers}**\n<:11:1105665875731816549>En 24h: **${horas24}**\n<:12:1105665933390925824>Ultimos 7 dias: **${dias7}**`)
             .setImage(chartUrl);

@@ -48,7 +48,7 @@ module.exports = (client, discord, interaction) => {
                 
                   `)
                   .setThumbnail(song.thumbnail)
-                  .setColor('${client.config.color}')
+                  .setColor(`${client.config.color}`)
                   .setFooter({
                     text: `Forki-DJ | Añadido por: ${user.username}`,
                     iconURL: client.user.displayAvatarURL()

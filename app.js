@@ -15,7 +15,7 @@ const client = new Client({
   shard: "auto",
 });
 
-const { loadEvents } = require("./Handlers/eventHandler");
+const { loadEvents } = require("../Forki/Handlers/eventHandler");
 const { loadbMenus } = require("./Handlers/menuHandler");
 const { loadModals } = require("./Handlers/modalHandler");
 const { loadbButtons } = require("./Handlers/buttonHandler");

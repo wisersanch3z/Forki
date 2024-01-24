@@ -1,10 +1,10 @@
-const { 
+const {
   ActivityType,
-  EmbedBuilder, 
+  EmbedBuilder,
   WebhookClient
- } = require("discord.js");
+} = require("discord.js");
 
- const webhook = new WebhookClient({
+const webhook = new WebhookClient({
   url: "https://discord.com/api/webhooks/1117215016605728768/CckTbMgD4360QMQuRvgrhgBYz_8aV88aksbVt0-OlIFUvZD47xyB7DTsYEnSJPnjIR5G",
 });
 
@@ -19,34 +19,35 @@ module.exports = {
   name: "ready",
   once: true,
 
+
+  async execute(client) {
+
+
+
   
-async execute(client) {
+    mongoose.set("strictQuery", true);
+
+    await mongoose.connect(process.env.mongodb, {
+      keepAlive: true,
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+
+    const online = new EmbedBuilder()
+      .setColor("Green")
+      .setDescription(`> 🟢 **${client.user.username}** conectado!`)
+    webhook.send({ embeds: [online] });
 
 
- 
+    if (mongoose.connect) {
+      const senal = new EmbedBuilder()
+        .setColor("Green")
+        .setDescription(`> 🟢 **MongoDB** conectado!`)
+      webhook.send({ embeds: [senal] });
 
-  mongoose.set("strictQuery", true);
-  
-  await mongoose.connect(process.env.mongodb, {
-    keepAlive: true,
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  });
+      console.log("🟩 | Base de datos conectada")
+    }
 
-  const online = new EmbedBuilder()
-  .setColor("Green")
-  .setDescription(`> 🟢 **${client.user.username}** conectado!`)
-  webhook.send({ embeds: [online]});
-
-
-  if(mongoose.connect){
-    const senal = new EmbedBuilder()
-    .setColor("Green")
-    .setDescription(`> 🟢 **MongoDB** conectado!`)
-    webhook.send({ embeds: [senal]});
-
-    console.log("🟩 | Base de datos conectada")
-  }
 
 
     setInterval(() => {
@@ -65,9 +66,9 @@ async execute(client) {
     loadCommands(client);
     loadPrefixs(client);
 
-    
 
-    
+
+
     console.log("🟩 | Bot arrancado");
   },
 };
